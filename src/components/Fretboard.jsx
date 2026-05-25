@@ -99,7 +99,7 @@ export default function Fretboard({ song, currentSectionIndex, showPentatonic })
               cx={noteX(p.fret)}
               cy={stringY(p.string)}
               r={DOT_RADIUS + 2}
-              fill={p.isRoot ? '#ff6b6b' : '#4ecdc4'}
+              fill={p.isRoot ? '#ff6b6b' : p.nashville === '5' ? '#ffd166' : '#4ecdc4'}
               opacity={0.9}
             />
             <text
