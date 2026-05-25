@@ -9,6 +9,7 @@ export default function PracticeView({ song, onBack }) {
   const [sectionIndex, setSectionIndex] = useState(0)
   const [currentTime, setCurrentTime] = useState(0)
   const [showPentatonic, setShowPentatonic] = useState(false)
+  const [showNashville, setShowNashville] = useState(false)
   const seekRef = useRef(null)
 
   const handleSeekReady = useCallback((seekFn) => {
@@ -43,14 +44,24 @@ export default function PracticeView({ song, onBack }) {
           ← Back to Library
         </button>
         <h1 style={{ fontSize: '1.1rem' }}>{song.title}</h1>
-        <label style={{ fontSize: '0.8rem', color: '#888', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-          <input
-            type="checkbox"
-            checked={showPentatonic}
-            onChange={e => setShowPentatonic(e.target.checked)}
-          />
-          Pentatonic
-        </label>
+        <div style={{ display: 'flex', gap: '0.75rem' }}>
+          <label style={{ fontSize: '0.8rem', color: '#888', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+            <input
+              type="checkbox"
+              checked={showNashville}
+              onChange={e => setShowNashville(e.target.checked)}
+            />
+            Nashville
+          </label>
+          <label style={{ fontSize: '0.8rem', color: '#888', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+            <input
+              type="checkbox"
+              checked={showPentatonic}
+              onChange={e => setShowPentatonic(e.target.checked)}
+            />
+            Pentatonic
+          </label>
+        </div>
       </div>
 
       <div style={{
@@ -68,6 +79,7 @@ export default function PracticeView({ song, onBack }) {
           song={song}
           currentSectionIndex={sectionIndex}
           currentTime={currentTime}
+          showNashville={showNashville}
           onSectionClick={handleSectionClick}
         />
       </div>

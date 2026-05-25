@@ -5,67 +5,210 @@ const curatedSongs = [
     key: "Ab",
     bpm: 63,
     timeSignature: "4/4",
-    youtubeId: "IvSuGyJQ6oM",
+    youtubeId: "oujEfZie7jg",
     difficulty: "beginner",
-    capo: null,
+    capo: 1,
     sections: [
       {
         label: "Intro",
-        startTime: 0,
-        duration: 8,
-        lyrics: [{ t: 0, text: "[Ab]    [Db]" }],
-        cagedPosition: "E-form (Ab) at fret 4",
-        voicingNotes: "Ab 466544, Db x46664",
-        technique: "Ambient swells with delay, let open strings ring"
+        startTime: 0.0,
+        lyrics: [{ t: 0.0, text: "[Ab]    [Db]    [Ab]    [Db]" }],
+        cagedPosition: "G-form (Ab)",
+        voicingNotes:
+          "Ab 320003 (G shape, capo 1), Db x32033 (Cadd9 shape, capo 1)",
+        technique: "Ambient swells, clean electric"
       },
       {
-        label: "Verse",
-        startTime: 20,
-        duration: 16,
+        label: "Verse 1",
+        startTime: 15.2,
         lyrics: [
-          { t: 20, text: "[Ab]I love You, Lord" },
-          { t: 25.7, text: "[Db]Oh Your mercy never fails me" },
-          { t: 31.3, text: "[Eb/G]All my days, I've been held in Your hands" },
-          { t: 37, text: "[Fm]From the moment that I wake up" },
-          { t: 42.7, text: "[Ab]Until I lay my head" },
-          { t: 48.3, text: "[Db]Oh, I will sing of the goodness of God" }
+          {
+            t: 16.0,
+            text: "I love You [Ab]Lord, oh Your [Db]mercy never [Ab]fails me"
+          },
+          {
+            t: 23.0,
+            text: "All my [Eb/G]days, I've been [Fm]held in Your [Db]hands [Eb]"
+          },
+          { t: 30.5, text: "From the moment that I [Fm]wake up [Db]" },
+          { t: 35.0, text: "Until I lay my [Ab]head [Eb/G] [Fm]" },
+          { t: 40.0, text: "I will [Db]sing of the [Eb]goodness of [Ab]God" }
         ],
-        cagedPosition: "E-form (Ab) at fret 4",
-        voicingNotes: "Ab 466544, Db x46664, Eb/G 365xxx, Fm7 131111",
-        technique: "Arpeggiated, light gain, fingerpicked pattern"
+        cagedPosition: "G-form (Ab)",
+        voicingNotes:
+          "Ab 320003 (G shape, capo 1), Db x32033 (Cadd9 shape, capo 1), Eb xx0232 (D shape, capo 1), Fm 022000 (Em shape, capo 1), Eb/G 2x0033 (D/F# shape, capo 1)",
+        technique: "Clean fingerpicking, atmospheric"
       },
       {
-        label: "Chorus",
-        startTime: 54,
-        duration: 16,
+        label: "Chorus 1",
+        startTime: 45.7,
         lyrics: [
-          { t: 54, text: "[Db]All my life You have been faithful" },
-          { t: 69.2, text: "[Ab]All my life You have been so, so good" },
-          { t: 84.5, text: "[Eb]With every breath that I am able" },
-          { t: 99.7, text: "[Fm]Oh, I will sing of the goodness of God" }
+          { t: 47.0, text: "All my [Db]life You have been [Ab]faithful" },
+          {
+            t: 54.0,
+            text: "All my [Db]life You have been [Ab]so, so [Eb]good"
+          },
+          {
+            t: 62.0,
+            text: "With every [Db]breath that I am [Ab]able [Eb/G] [Fm]"
+          },
+          { t: 70.0, text: "I will [Db]sing of the [Eb]goodness of [Ab]God" }
         ],
-        cagedPosition: "E-form (Ab) at fret 4 moving to Db-form",
-        voicingNotes: "Db x46664, Ab 466544, Eb 668886, Fm7 131111",
-        technique: "Building, strummed with delay, medium gain"
+        cagedPosition: "G-form (Ab)",
+        voicingNotes:
+          "Ab 320003 (G shape, capo 1), Db x32033 (Cadd9 shape, capo 1), Eb xx0232 (D shape, capo 1), Fm 022000 (Em shape, capo 1), Eb/G 2x0033 (D/F# shape, capo 1)",
+        technique: "Lightly strummed, building dynamics"
       },
       {
-        label: "Bridge",
-        startTime: 148,
-        duration: 16,
+        label: "Verse 2",
+        startTime: 76.2,
         lyrics: [
-          { t: 148, text: "[Ab/C]'Cause Your goodness is running after" },
-          { t: 158.2, text: "[Db]It's running after me" },
-          { t: 168.3, text: "[Eb]With my life laid down, I'm surrendered now" },
-          { t: 178.5, text: "[Ab]I give You everything" },
-          { t: 188.6, text: "[Ab/C]'Cause Your goodness is running after" },
-          { t: 198.8, text: "[Db]It keeps running after me" }
+          {
+            t: 77.0,
+            text:
+              "I love Your [Ab]voice, You have [Db]led me through the [Ab]fire"
+          },
+          {
+            t: 84.5,
+            text:
+              "In darkest [Eb/G]night You are [Fm]close like no [Db]other [Eb]"
+          },
+          { t: 91.5, text: "I've known You as a [Fm]father [Db]" },
+          { t: 95.5, text: "I've known You as a [Ab]friend [Eb/G] [Fm]" },
+          { t: 100.5, text: "I have [Db]lived in the [Eb]goodness of [Ab]God" }
         ],
-        cagedPosition: "Open position / Am-form",
-        voicingNotes: "Ab/C x36544, Db x46664, Eb 668886, Ab 466544",
-        technique: "Climax, full strum, delay drenched, let ring"
+        cagedPosition: "G-form (Ab)",
+        voicingNotes:
+          "Ab 320003 (G shape, capo 1), Db x32033 (Cadd9 shape, capo 1), Eb xx0232 (D shape, capo 1), Fm 022000 (Em shape, capo 1), Eb/G 2x0033 (D/F# shape, capo 1)",
+        technique: "Strummed, medium energy"
+      },
+      {
+        label: "Chorus 2",
+        startTime: 106.7,
+        lyrics: [
+          { t: 108.0, text: "All my [Db]life You have been [Ab]faithful" },
+          {
+            t: 115.0,
+            text: "All my [Db]life You have been [Ab]so, so [Eb]good"
+          },
+          {
+            t: 123.0,
+            text: "With every [Db]breath that I am [Ab]able [Eb/G] [Fm]"
+          },
+          { t: 131.0, text: "I will [Db]sing of the [Eb]goodness of [Ab]God" }
+        ],
+        cagedPosition: "G-form (Ab)",
+        voicingNotes:
+          "Ab 320003 (G shape, capo 1), Db x32033 (Cadd9 shape, capo 1), Eb xx0232 (D shape, capo 1), Fm 022000 (Em shape, capo 1), Eb/G 2x0033 (D/F# shape, capo 1)",
+        technique: "Full strumming, moderate overdrive"
+      },
+      {
+        label: "Instrumental",
+        startTime: 137.2,
+        lyrics: [
+          { t: 137.2, text: "[Ab/C]    [Db]    [Eb]    [Ab]" },
+          { t: 144.8, text: "[Ab/C]    [Db]    [Eb]    [Ab]" }
+        ],
+        cagedPosition: "G-form (Ab)",
+        voicingNotes:
+          "Ab x02220 (G shape, capo 1), Db x32033 (Cadd9 shape, capo 1), Eb xx0232 (D shape, capo 1), Ab/C x20033 (G/B shape, capo 1)",
+        technique: "Building rhythm, delay drenched"
+      },
+      {
+        label: "Bridge 1",
+        startTime: 152.4,
+        lyrics: [
+          {
+            t: 153.5,
+            text:
+              "Your [Ab/C]goodness is [Db]running after, it's [Eb]running after [Ab]me"
+          },
+          {
+            t: 161.0,
+            text:
+              "Your [Ab/C]goodness is [Db]running after, it's [Eb]running after [Ab]me"
+          },
+          {
+            t: 168.5,
+            text:
+              "With my [Ab/C]life laid down, I'm sur[Db]rendered now, I [Eb]give You every[Fm]thing"
+          },
+          {
+            t: 176.0,
+            text:
+              "Your [Ab/C]goodness is [Db]running after, it's [Eb]running after [Ab]me"
+          }
+        ],
+        cagedPosition: "G-form (Ab)",
+        voicingNotes:
+          "Ab 320003 (G shape, capo 1), Db x32033 (Cadd9 shape, capo 1), Eb xx0232 (D shape, capo 1), Fm 022000 (Em shape, capo 1), Ab/C x20033 (G/B shape, capo 1)",
+        technique: "Strummed, driving rhythm, building"
+      },
+      {
+        label: "Bridge 2",
+        startTime: 182.9,
+        lyrics: [
+          {
+            t: 184.0,
+            text:
+              "Your [Ab/C]goodness is [Db]running after, it's [Eb]running after [Ab]me"
+          },
+          {
+            t: 191.5,
+            text:
+              "Your [Ab/C]goodness is [Db]running after, it's [Eb]running after [Ab]me"
+          },
+          {
+            t: 199.0,
+            text:
+              "With my [Ab/C]life laid down, I'm sur[Db]rendered now, I [Eb]give You every[Fm]thing"
+          },
+          {
+            t: 206.5,
+            text:
+              "Your [Ab/C]goodness is [Db]running after, it's [Eb]running after [Ab]me"
+          }
+        ],
+        cagedPosition: "G-form (Ab)",
+        voicingNotes:
+          "Ab 320003 (G shape, capo 1), Db x32033 (Cadd9 shape, capo 1), Eb xx0232 (D shape, capo 1), Fm 022000 (Em shape, capo 1), Ab/C x20033 (G/B shape, capo 1)",
+        technique: "Climax, full overdrive, heavy strumming"
+      },
+      {
+        label: "Chorus 3",
+        startTime: 213.4,
+        lyrics: [
+          { t: 215.0, text: "All my [Db]life You have been [Ab]faithful" },
+          {
+            t: 222.0,
+            text: "All my [Db]life You have been [Ab]so, so [Eb]good"
+          },
+          {
+            t: 230.0,
+            text: "With every [Db]breath that I am [Ab]able [Eb/G] [Fm]"
+          },
+          { t: 238.0, text: "I will [Db]sing of the [Eb]goodness of [Ab]God" }
+        ],
+        cagedPosition: "G-form (Ab)",
+        voicingNotes:
+          "Ab 320003 (G shape, capo 1), Db x32033 (Cadd9 shape, capo 1), Eb xx0232 (D shape, capo 1), Fm 022000 (Em shape, capo 1), Eb/G 2x0033 (D/F# shape, capo 1)",
+        technique: "Down dynamically, then building back up"
+      },
+      {
+        label: "Outro",
+        startTime: 243.9,
+        lyrics: [
+          { t: 243.9, text: "[Ab]    [Db]    [Ab]    [Db]" },
+          { t: 251.5, text: "[Ab]    [Db]    [Ab]" }
+        ],
+        cagedPosition: "G-form (Ab)",
+        voicingNotes:
+          "Ab 320003 (G shape, capo 1), Db x32033 (Cadd9 shape, capo 1)",
+        technique: "Fading, ambient swells, open strings ringing"
       }
     ]
   },
+
   {
     title: "Way Maker",
     artist: "Leeland",
@@ -79,7 +222,6 @@ const curatedSongs = [
       {
         label: "Verse",
         startTime: 0,
-        duration: 16,
         lyrics: [
           { t: 0, text: "[A]You are here, moving in our midst" },
           { t: 10.8, text: "[E]I worship You, I worship You" },
@@ -93,7 +235,6 @@ const curatedSongs = [
       {
         label: "Chorus",
         startTime: 43,
-        duration: 16,
         lyrics: [
           { t: 43, text: "[A]Way Maker, Miracle Worker, Promise Keeper" },
           { t: 61.8, text: "[E]Light in the darkness" },
@@ -106,7 +247,6 @@ const curatedSongs = [
       {
         label: "Bridge",
         startTime: 137,
-        duration: 16,
         lyrics: [
           { t: 137, text: "[A]Even when I don't see it, You're working" },
           { t: 151.1, text: "[E]Even when I don't feel it, You're working" },
@@ -132,7 +272,6 @@ const curatedSongs = [
       {
         label: "Verse",
         startTime: 0,
-        duration: 16,
         lyrics: [
           { t: 0, text: "[D]You were the Word at the beginning" },
           { t: 8.8, text: "[G]One with God the Lord Most High" },
@@ -147,7 +286,6 @@ const curatedSongs = [
       {
         label: "Chorus",
         startTime: 35,
-        duration: 16,
         lyrics: [
           { t: 35, text: "[D]What a beautiful Name it is" },
           { t: 43.1, text: "[A]What a beautiful Name it is" },
@@ -164,7 +302,6 @@ const curatedSongs = [
       {
         label: "Bridge",
         startTime: 172,
-        duration: 16,
         lyrics: [
           { t: 172, text: "[G]Death could not hold You" },
           { t: 183.3, text: "[A]The veil tore before You" },
@@ -195,7 +332,6 @@ const curatedSongs = [
       {
         label: "Intro",
         startTime: 0.0,
-        duration: 3,
         lyrics: [
           { t: 0.0, text: "[Cm]    [Bb]    [Ab]    [Eb]" },
           { t: 4.5, text: "[Cm]    [Bb]    [Ab]    [Eb]" }
@@ -208,7 +344,6 @@ const curatedSongs = [
       {
         label: "Verse 1",
         startTime: 9.0,
-        duration: 8,
         lyrics: [
           {
             t: 9.0,
@@ -237,7 +372,6 @@ const curatedSongs = [
       {
         label: "Verse 2",
         startTime: 37.0,
-        duration: 8,
         lyrics: [
           {
             t: 37.0,
@@ -266,7 +400,6 @@ const curatedSongs = [
       {
         label: "Chorus 1",
         startTime: 64.0,
-        duration: 8,
         lyrics: [
           { t: 64.0, text: "[Bb]Jireh [Cm], You are [Ab]enough [Eb]" },
           { t: 70.5, text: "[Bb]Jireh [Cm], You are [Ab]enough [Eb]" },
@@ -283,7 +416,6 @@ const curatedSongs = [
       {
         label: "Turnaround 1",
         startTime: 91.0,
-        duration: 4,
         lyrics: [
           {
             t: 91.0,
@@ -303,7 +435,6 @@ const curatedSongs = [
       {
         label: "Verse 3",
         startTime: 105.0,
-        duration: 8,
         lyrics: [
           {
             t: 105.0,
@@ -330,7 +461,6 @@ const curatedSongs = [
       {
         label: "Chorus 2",
         startTime: 132.0,
-        duration: 8,
         lyrics: [
           { t: 132.0, text: "[Bb]Jireh [Cm], You are [Ab]enough [Eb/G]" },
           { t: 138.5, text: "[Bb]Jireh [Cm], You are [Ab]enough [Eb/G]" },
@@ -347,7 +477,6 @@ const curatedSongs = [
       {
         label: "Turnaround 2",
         startTime: 159.0,
-        duration: 4,
         lyrics: [
           {
             t: 159.0,
@@ -367,7 +496,6 @@ const curatedSongs = [
       {
         label: "Bridge 1",
         startTime: 173.0,
-        duration: 8,
         lyrics: [
           {
             t: 173.0,
@@ -395,7 +523,6 @@ const curatedSongs = [
       {
         label: "Bridge 2",
         startTime: 201.0,
-        duration: 8,
         lyrics: [
           {
             t: 201.0,
@@ -423,7 +550,6 @@ const curatedSongs = [
       {
         label: "Bridge 3",
         startTime: 228.0,
-        duration: 12,
         lyrics: [
           {
             t: 228.0,
@@ -456,7 +582,6 @@ const curatedSongs = [
       {
         label: "Vamp 1",
         startTime: 270.0,
-        duration: 16,
         lyrics: [
           {
             t: 270.0,
@@ -485,7 +610,6 @@ const curatedSongs = [
       {
         label: "Chorus 3",
         startTime: 324.0,
-        duration: 8,
         lyrics: [
           { t: 324.0, text: "[Bb]Jireh [Cm], You are [Ab]enough [Eb/G]" },
           { t: 330.5, text: "[Bb]Jireh [Cm], You are [Ab]enough [Eb/G]" },
@@ -502,7 +626,6 @@ const curatedSongs = [
       {
         label: "Instrumental",
         startTime: 352.0,
-        duration: 4,
         lyrics: [
           { t: 352.0, text: "[Ab]   [Eb/G]   [Bb]   [Cm]" },
           { t: 359.0, text: "[Ab]   [Eb/G]   [Bb]   [Cm]" }
@@ -514,7 +637,6 @@ const curatedSongs = [
       {
         label: "Vamp 2",
         startTime: 367.0,
-        duration: 24,
         lyrics: [
           { t: 367.0, text: "[Ab]More than you [Eb/G]ask, think or imagine" },
           { t: 370.5, text: "Ac[Bb]cording to His [Cm]power working in us" },
@@ -566,7 +688,6 @@ const curatedSongs = [
       {
         label: "Tag",
         startTime: 449.0,
-        duration: 4,
         lyrics: [
           { t: 449.0, text: "It's [Ab]more than e[Eb/G]nough" },
           { t: 452.5, text: "It's [Bb]more than e[Cm]nough" },
@@ -580,7 +701,6 @@ const curatedSongs = [
       {
         label: "Vamp 3",
         startTime: 464.0,
-        duration: 20,
         lyrics: [
           {
             t: 464.0,
@@ -627,7 +747,6 @@ const curatedSongs = [
       {
         label: "Tag 2",
         startTime: 533.0,
-        duration: 4,
         lyrics: [
           {
             t: 533.0,
@@ -642,7 +761,6 @@ const curatedSongs = [
       {
         label: "Chorus 4",
         startTime: 547.0,
-        duration: 12,
         lyrics: [
           { t: 547.0, text: "[Bb]Jireh [Cm], You are [Ab]enough [Eb/G]" },
           { t: 553.5, text: "[Bb]Jireh [Cm], You are [Ab]enough [Eb/G]" },
@@ -664,7 +782,6 @@ const curatedSongs = [
       {
         label: "Outro",
         startTime: 589.0,
-        duration: 3,
         lyrics: [
           { t: 589.0, text: "[Ab]   [Eb/G]   [Bb]   [Cm]" },
           { t: 595.0, text: "[Ab]   [Eb/G]   [Bb]   [Cm]" }
@@ -688,7 +805,6 @@ const curatedSongs = [
       {
         label: "Intro",
         startTime: 0.0,
-        duration: 8,
         lyrics: [{ t: 0.0, text: "[G]    [C/G]    [G/B]    [C/G]" }],
         cagedPosition: "E-form (G)",
         voicingNotes: "G 320003, C/G 3x2013, G/B x20003",
@@ -697,7 +813,6 @@ const curatedSongs = [
       {
         label: "Verse 1",
         startTime: 20.0,
-        duration: 16,
         lyrics: [
           { t: 23.5, text: "[G]Worthy of every song we could ever [C/G]sing" },
           {
@@ -717,7 +832,6 @@ const curatedSongs = [
       {
         label: "Verse 2",
         startTime: 48.0,
-        duration: 16,
         lyrics: [
           { t: 48.8, text: "[G]Jesus, the name above every other [C/G]name" },
           {
@@ -737,7 +851,6 @@ const curatedSongs = [
       {
         label: "Chorus",
         startTime: 76.0,
-        duration: 16,
         lyrics: [
           { t: 76.0, text: "[Cmaj9]Holy, there is no one like You" },
           {
@@ -760,7 +873,6 @@ const curatedSongs = [
       {
         label: "Turnaround",
         startTime: 103.0,
-        duration: 8,
         lyrics: [{ t: 103.0, text: "[Cmaj9]    [Am7]    [G]    [Em7]" }],
         cagedPosition: "C-form / Open Position",
         voicingNotes: "Cmaj9 x32002, Am7 x02010, G 320003, Em7 022030",
@@ -769,7 +881,6 @@ const curatedSongs = [
       {
         label: "Verse 1",
         startTime: 150.0,
-        duration: 16,
         lyrics: [
           { t: 151.0, text: "[G]Worthy of every song we could ever [C/G]sing" },
           {
@@ -801,7 +912,6 @@ const curatedSongs = [
       {
         label: "Intro",
         startTime: 0,
-        duration: 8,
         lyrics: [{ t: 0, text: "[B]    [E]" }],
         cagedPosition: "E-form (B) at fret 7",
         voicingNotes: "B 799877, E 022100",
@@ -810,7 +920,6 @@ const curatedSongs = [
       {
         label: "Verse",
         startTime: 14,
-        duration: 16,
         lyrics: [
           { t: 14, text: "[B]Are you hurting and broken within" },
           { t: 18.5, text: "[E]Overwhelmed by the weight of your sin" },
@@ -826,7 +935,6 @@ const curatedSongs = [
       {
         label: "Chorus",
         startTime: 41,
-        duration: 16,
         lyrics: [
           { t: 41, text: "[B]O come to the altar" },
           { t: 51.3, text: "[C#m7]The Father's arms are open wide" },
@@ -852,7 +960,6 @@ const curatedSongs = [
       {
         label: "Intro",
         startTime: 0,
-        duration: 8,
         lyrics: [{ t: 0, text: "[Gb]" }],
         cagedPosition: "E-form (Gb) at fret 2",
         voicingNotes: "Gb 244322",
@@ -861,7 +968,6 @@ const curatedSongs = [
       {
         label: "Verse",
         startTime: 8,
-        duration: 16,
         lyrics: [
           { t: 8, text: "[Gb]Who am I that the highest King" },
           { t: 13, text: "[Ebm]Would welcome me" },
@@ -875,7 +981,6 @@ const curatedSongs = [
       {
         label: "Chorus",
         startTime: 28,
-        duration: 16,
         lyrics: [
           { t: 28, text: "[Gb]Who the Son sets free, oh is free indeed" },
           { t: 33.6, text: "[Db]I'm a child of God, yes I am" },
@@ -903,7 +1008,6 @@ const curatedSongs = [
       {
         label: "Verse",
         startTime: 0,
-        duration: 16,
         lyrics: [
           {
             t: 0,
@@ -923,7 +1027,6 @@ const curatedSongs = [
       {
         label: "Chorus",
         startTime: 23,
-        duration: 16,
         lyrics: [
           {
             t: 23,
@@ -952,7 +1055,6 @@ const curatedSongs = [
       {
         label: "Bridge",
         startTime: 46,
-        duration: 16,
         lyrics: [
           { t: 46, text: "[Ebm]There's no shadow You won't light up" },
           { t: 51.8, text: "[Db]Mountain You won't climb up" },
@@ -980,7 +1082,6 @@ const curatedSongs = [
       {
         label: "Intro",
         startTime: 0,
-        duration: 8,
         lyrics: [{ t: 0, text: "[G]    [D]    [Em]    [C]" }],
         cagedPosition: "E-form (G)",
         voicingNotes: "G 320003, Dsus4 x00233, Em7 022030, Cadd9 x32030",
@@ -989,7 +1090,6 @@ const curatedSongs = [
       {
         label: "Verse",
         startTime: 26,
-        duration: 16,
         lyrics: [
           { t: 26, text: "[G]Bless the Lord, O my soul" },
           { t: 34.8, text: "[D]O my soul" },
@@ -1005,7 +1105,6 @@ const curatedSongs = [
       {
         label: "Chorus",
         startTime: 79,
-        duration: 16,
         lyrics: [
           { t: 79, text: "[G]The sun comes up, it's a new day dawning" },
           { t: 92.2, text: "[D]It's time to sing Your song again" },
@@ -1034,7 +1133,6 @@ const curatedSongs = [
       {
         label: "Verse",
         startTime: 0,
-        duration: 16,
         lyrics: [
           { t: 0, text: "[B]The Lord bless you and keep you" },
           { t: 11, text: "[E]Make His face shine upon you" },
@@ -1050,7 +1148,6 @@ const curatedSongs = [
       {
         label: "Chorus",
         startTime: 55,
-        duration: 16,
         lyrics: [
           { t: 55, text: "[G#m7]Amen, amen, amen" },
           { t: 82.4, text: "[E]Over you" }
@@ -1062,7 +1159,6 @@ const curatedSongs = [
       {
         label: "Bridge",
         startTime: 110,
-        duration: 24,
         lyrics: [
           { t: 110, text: "[G#m7]May His favor be upon you" },
           { t: 130.6, text: "[E]And a thousand generations" },
@@ -1072,6 +1168,615 @@ const curatedSongs = [
         cagedPosition: "E-form (B) at fret 7 with G#m-form",
         voicingNotes: "G#m7 x46454, E 022100, B 799877, F# x24442",
         technique: "Climax, sustained pads, volume swells, ambient texture"
+      }
+    ]
+  },
+  {
+    title: "Who Else",
+    artist: "Gateway Worship feat. Abbie Gamboa",
+    key: "Ab",
+    bpm: 68,
+    timeSignature: "4/4",
+    youtubeId: "oujEfZie7jg",
+    difficulty: "intermediate",
+    capo: 1,
+    sections: [
+      {
+        label: "Intro",
+        startTime: 0.0,
+        lyrics: [
+          {
+            t: 0.0,
+            text: "[Ab]"
+          },
+          {
+            t: 7.1,
+            text: "[Ab]"
+          }
+        ],
+        cagedPosition: "G-form (Ab)",
+        voicingNotes: "Ab 320003 (G shape, capo 1)",
+        technique: "Pad with reverb, ambient swells"
+      },
+      {
+        label: "Verse 1",
+        startTime: 12.5,
+        lyrics: [
+          {
+            t: 12.5,
+            text: "I am an [Ab]instrument of exalt[Eb]ation"
+          },
+          {
+            t: 26.5,
+            text:
+              "And I was [Fm7]born to lift Your [Eb]name above all [Db2]names"
+          },
+          {
+            t: 40.5,
+            text: "You hear the [Ab]melody of all cre[Eb]ation"
+          },
+          {
+            t: 54.5,
+            text:
+              "But there's a [Fm7]song of praise that [Eb]only I can [Db2]bring"
+          }
+        ],
+        cagedPosition: "G-form (Ab)",
+        voicingNotes:
+          "Ab 320003 (G shape), Eb xx0232 (D shape), Fm7 022000 (Em7 shape), Db2 x32030 (Cadd9 shape)",
+        technique: "Ambient swells, clean fingerpicking"
+      },
+      {
+        label: "Chorus 1",
+        startTime: 70.6,
+        lyrics: [
+          {
+            t: 70.6,
+            text: "[Ab]Who else is worthy"
+          },
+          {
+            t: 77.6,
+            text: "[Bbm7]Who else is worthy"
+          },
+          {
+            t: 84.7,
+            text: "There is [Fm7]no one, only You, [Db2]Jesus"
+          },
+          {
+            t: 91.8,
+            text: "[Ab]Who else is worthy"
+          },
+          {
+            t: 98.8,
+            text: "[Bbm7]Who else is worthy"
+          },
+          {
+            t: 105.9,
+            text: "There is [Fm7]no one, only You, [Db2]Jesus"
+          }
+        ],
+        cagedPosition: "G-form (Ab)",
+        voicingNotes:
+          "Ab 320003 (G shape), Bbm7 x02010 (Am7 shape), Fm7 022000 (Em7 shape), Db2 x32030 (Cadd9 shape)",
+        technique: "Light strummed, building dynamics"
+      },
+      {
+        label: "Interlude",
+        startTime: 113.0,
+        lyrics: [
+          {
+            t: 113.0,
+            text: "[Ab]"
+          }
+        ],
+        cagedPosition: "G-form (Ab)",
+        voicingNotes: "Ab 320003 (G shape)",
+        technique: "Arpeggiated, light gain"
+      },
+      {
+        label: "Verse 2",
+        startTime: 118.5,
+        lyrics: [
+          {
+            t: 118.5,
+            text: "You are the [Ab]infinite God of the [Eb]ages"
+          },
+          {
+            t: 132.5,
+            text:
+              "Yet You [Fm7]chose to make my [Eb]heart Your dwelling [Db2]place"
+          },
+          {
+            t: 146.5,
+            text: "You healed my [Ab]brokenness, showed me Your [Eb]glory"
+          },
+          {
+            t: 160.5,
+            text: "So I have [Fm7]songs of thanks not [Eb]even angels [Db2]sing"
+          }
+        ],
+        cagedPosition: "G-form (Ab)",
+        voicingNotes:
+          "Ab 320003 (G shape), Eb xx0232 (D shape), Fm7 022000 (Em7 shape), Db2 x32030 (Cadd9 shape)",
+        technique: "Steady strumming, driving feel"
+      },
+      {
+        label: "Chorus 2",
+        startTime: 176.5,
+        lyrics: [
+          {
+            t: 176.5,
+            text: "[Ab]Who else is worthy"
+          },
+          {
+            t: 183.5,
+            text: "[Bbm7]Who else is worthy"
+          },
+          {
+            t: 190.6,
+            text: "There is [Fm7]no one, only You, [Db2]Jesus"
+          },
+          {
+            t: 197.6,
+            text: "[Ab]Who else is worthy"
+          },
+          {
+            t: 204.7,
+            text: "[Bbm7]Who else is worthy"
+          },
+          {
+            t: 211.8,
+            text: "There is [Fm7]no one, only You, [Db2]Jesus"
+          }
+        ],
+        cagedPosition: "G-form (Ab)",
+        voicingNotes:
+          "Ab 320003 (G shape), Bbm7 x02010 (Am7 shape), Fm7 022000 (Em7 shape), Db2 x32030 (Cadd9 shape)",
+        technique: "Full strummed, moderate gain"
+      },
+      {
+        label: "Instrumental",
+        startTime: 233.0,
+        lyrics: [
+          {
+            t: 233.0,
+            text: "[Db2]    [Eb]    [Fm7]    [Ab]  [Eb]"
+          },
+          {
+            t: 247.1,
+            text: "[Db2]    [Eb]    [Fm7]    [Ab]  [Eb]"
+          },
+          {
+            t: 261.2,
+            text: "[Db2]    [Eb]    [Fm7]    [Ab]  [Eb]"
+          },
+          {
+            t: 275.3,
+            text: "[Db2]    [Eb]    [Fm7]    [Ab]  [Eb]"
+          },
+          {
+            t: 289.4,
+            text: "[Db2]    [Eb]    [Fm7]    [Ab]  [Eb]"
+          }
+        ],
+        cagedPosition: "G-form (Ab)",
+        voicingNotes:
+          "Db2 x32030 (Cadd9 shape), Eb xx0232 (D shape), Fm7 022000 (Em7 shape), Ab 320003 (G shape)",
+        technique: "Building dynamics, atmospheric lead lines"
+      },
+      {
+        label: "Bridge 1",
+        startTime: 303.8,
+        lyrics: [
+          {
+            t: 303.8,
+            text: "[Db2]Lamb of God, anointed one"
+          },
+          {
+            t: 307.3,
+            text: "Who [Eb]was and is and is to come"
+          },
+          {
+            t: 310.8,
+            text: "[Fm7]Seated on the throne above"
+          },
+          {
+            t: 314.4,
+            text: "[Ab]Holy, [Eb]holy"
+          },
+          {
+            t: 317.9,
+            text: "[Db2]Righteous One who shed His blood"
+          },
+          {
+            t: 321.4,
+            text: "To [Eb]prove to us the Father's love"
+          },
+          {
+            t: 325.0,
+            text: "[Fm7]Jesus Christ, be lifted up"
+          },
+          {
+            t: 328.5,
+            text: "[Ab]Holy, [Eb]holy"
+          }
+        ],
+        cagedPosition: "G-form (Ab)",
+        voicingNotes:
+          "Db2 x32030 (Cadd9 shape), Eb xx0232 (D shape), Fm7 022000 (Em7 shape), Ab 320003 (G shape)",
+        technique: "Building, light strumming"
+      },
+      {
+        label: "Bridge 2",
+        startTime: 332.0,
+        lyrics: [
+          {
+            t: 332.0,
+            text: "[Db2]Lamb of God, anointed one"
+          },
+          {
+            t: 335.5,
+            text: "Who [Eb]was and is and is to come"
+          },
+          {
+            t: 339.0,
+            text: "[Fm7]Seated on the throne above"
+          },
+          {
+            t: 342.6,
+            text: "[Ab]Holy, [Eb]holy"
+          },
+          {
+            t: 346.1,
+            text: "[Db2]Righteous One who shed His blood"
+          },
+          {
+            t: 349.6,
+            text: "To [Eb]prove to us the Father's love"
+          },
+          {
+            t: 353.2,
+            text: "[Fm7]Jesus Christ, be lifted up"
+          },
+          {
+            t: 356.7,
+            text: "[Ab]Holy, [Eb]holy"
+          }
+        ],
+        cagedPosition: "G-form (Ab)",
+        voicingNotes:
+          "Db2 x32030 (Cadd9 shape), Eb xx0232 (D shape), Fm7 022000 (Em7 shape), Ab 320003 (G shape)",
+        technique: "Steady build, quarter note strumming"
+      },
+      {
+        label: "Bridge 3",
+        startTime: 360.2,
+        lyrics: [
+          {
+            t: 360.2,
+            text: "[Db2]Lamb of God, anointed one"
+          },
+          {
+            t: 363.7,
+            text: "Who [Eb]was and is and is to come"
+          },
+          {
+            t: 367.2,
+            text: "[Fm7]Seated on the throne above"
+          },
+          {
+            t: 370.8,
+            text: "[Ab]Holy, [Eb]holy"
+          },
+          {
+            t: 374.3,
+            text: "[Db2]Righteous One who shed His blood"
+          },
+          {
+            t: 377.8,
+            text: "To [Eb]prove to us the Father's love"
+          },
+          {
+            t: 381.4,
+            text: "[Fm7]Jesus Christ, be lifted up"
+          },
+          {
+            t: 384.9,
+            text: "[Ab]Holy, [Eb]holy"
+          }
+        ],
+        cagedPosition: "G-form (Ab)",
+        voicingNotes:
+          "Db2 x32030 (Cadd9 shape), Eb xx0232 (D shape), Fm7 022000 (Em7 shape), Ab 320003 (G shape)",
+        technique: "Increased dynamics, eighth note strumming"
+      },
+      {
+        label: "Bridge 4",
+        startTime: 388.4,
+        lyrics: [
+          {
+            t: 388.4,
+            text: "[Db2]Lamb of God, anointed one"
+          },
+          {
+            t: 391.9,
+            text: "Who [Eb]was and is and is to come"
+          },
+          {
+            t: 395.4,
+            text: "[Fm7]Seated on the throne above"
+          },
+          {
+            t: 399.0,
+            text: "[Ab]Holy, [Eb]holy"
+          },
+          {
+            t: 402.5,
+            text: "[Db2]Righteous One who shed His blood"
+          },
+          {
+            t: 406.0,
+            text: "To [Eb]prove to us the Father's love"
+          },
+          {
+            t: 409.6,
+            text: "[Fm7]Jesus Christ, be lifted up"
+          },
+          {
+            t: 413.1,
+            text: "[Ab]Holy, [Eb]holy"
+          }
+        ],
+        cagedPosition: "G-form (Ab)",
+        voicingNotes:
+          "Db2 x32030 (Cadd9 shape), Eb xx0232 (D shape), Fm7 022000 (Em7 shape), Ab 320003 (G shape)",
+        technique: "Full band enters, big strumming"
+      },
+      {
+        label: "Bridge 5",
+        startTime: 416.6,
+        lyrics: [
+          {
+            t: 416.6,
+            text: "[Db2]Lamb of God, anointed one"
+          },
+          {
+            t: 420.1,
+            text: "Who [Eb]was and is and is to come"
+          },
+          {
+            t: 423.6,
+            text: "[Fm7]Seated on the throne above"
+          },
+          {
+            t: 427.2,
+            text: "[Ab]Holy, [Eb]holy"
+          },
+          {
+            t: 430.7,
+            text: "[Db2]Righteous One who shed His blood"
+          },
+          {
+            t: 434.2,
+            text: "To [Eb]prove to us the Father's love"
+          },
+          {
+            t: 437.8,
+            text: "[Fm7]Jesus Christ, be lifted up"
+          },
+          {
+            t: 441.3,
+            text: "[Ab]Holy, [Eb]holy"
+          }
+        ],
+        cagedPosition: "G-form (Ab)",
+        voicingNotes:
+          "Db2 x32030 (Cadd9 shape), Eb xx0232 (D shape), Fm7 022000 (Em7 shape), Ab 320003 (G shape)",
+        technique: "Climax, heavy gain, open chords"
+      },
+      {
+        label: "Bridge 6",
+        startTime: 444.8,
+        lyrics: [
+          {
+            t: 444.8,
+            text: "[Db2]Lamb of God, anointed one"
+          },
+          {
+            t: 448.3,
+            text: "Who [Eb]was and is and is to come"
+          },
+          {
+            t: 451.8,
+            text: "[Fm7]Seated on the throne above"
+          },
+          {
+            t: 455.4,
+            text: "[Ab]Holy, [Eb]holy"
+          },
+          {
+            t: 458.9,
+            text: "[Db2]Righteous One who shed His blood"
+          },
+          {
+            t: 462.4,
+            text: "To [Eb]prove to us the Father's love"
+          },
+          {
+            t: 466.0,
+            text: "[Fm7]Jesus Christ, be lifted up"
+          },
+          {
+            t: 469.5,
+            text: "[Ab]Holy, [Eb]holy"
+          }
+        ],
+        cagedPosition: "G-form (Ab)",
+        voicingNotes:
+          "Db2 x32030 (Cadd9 shape), Eb xx0232 (D shape), Fm7 022000 (Em7 shape), Ab 320003 (G shape)",
+        technique: "Maximum energy, driving rhythm"
+      },
+      {
+        label: "Bridge 7",
+        startTime: 473.0,
+        lyrics: [
+          {
+            t: 473.0,
+            text: "[Db2]Lamb of God, anointed one"
+          },
+          {
+            t: 476.5,
+            text: "Who [Eb]was and is and is to come"
+          },
+          {
+            t: 480.0,
+            text: "[Fm7]Seated on the throne above"
+          },
+          {
+            t: 483.6,
+            text: "[Ab]Holy, [Eb]holy"
+          },
+          {
+            t: 487.1,
+            text: "[Db2]Righteous One who shed His blood"
+          },
+          {
+            t: 490.6,
+            text: "To [Eb]prove to us the Father's love"
+          },
+          {
+            t: 494.2,
+            text: "[Fm7]Jesus Christ, be lifted up"
+          },
+          {
+            t: 497.7,
+            text: "[Ab]Holy, [Eb]holy"
+          }
+        ],
+        cagedPosition: "G-form (Ab)",
+        voicingNotes:
+          "Db2 x32030 (Cadd9 shape), Eb xx0232 (D shape), Fm7 022000 (Em7 shape), Ab 320003 (G shape)",
+        technique: "Final climax, massive wall of sound"
+      },
+      {
+        label: "Chorus 3",
+        startTime: 501.2,
+        lyrics: [
+          {
+            t: 501.2,
+            text: "[Ab]Who else is worthy"
+          },
+          {
+            t: 508.3,
+            text: "[Bbm7]Who else is worthy"
+          },
+          {
+            t: 515.3,
+            text: "There is [Fm7]no one, only You, [Db2]Jesus"
+          },
+          {
+            t: 522.4,
+            text: "[Ab]Who else is worthy"
+          },
+          {
+            t: 529.5,
+            text: "[Bbm7]Who else is worthy"
+          },
+          {
+            t: 536.5,
+            text: "There is [Fm7]no one, only You, [Db2]Jesus"
+          }
+        ],
+        cagedPosition: "G-form (Ab)",
+        voicingNotes:
+          "Ab 320003 (G shape), Bbm7 x02010 (Am7 shape), Fm7 022000 (Em7 shape), Db2 x32030 (Cadd9 shape)",
+        technique: "Full strummed, heavy gain"
+      },
+      {
+        label: "Tag",
+        startTime: 543.6,
+        lyrics: [
+          {
+            t: 543.6,
+            text: "There is [Fm7]no one, only You, [Db2]Jesus"
+          },
+          {
+            t: 548.0,
+            text: "There is [Fm7]no one, only You, [Db2]Jesus"
+          }
+        ],
+        cagedPosition: "G-form (Ab)",
+        voicingNotes: "Fm7 022000 (Em7 shape), Db2 x32030 (Cadd9 shape)",
+        technique: "Ringing out, fading"
+      }
+    ]
+  },
+  {
+    title: "Goodness of God",
+    artist: "Bethel Music",
+    key: "G",
+    bpm: 64,
+    timeSignature: "4/4",
+    youtubeId: "iJE4yahElBQ",
+    difficulty: "beginner",
+    capo: null,
+    sections: [
+      {
+        label: "Intro",
+        startTime: 0.0,
+        lyrics: [{ t: 0.0, text: "[G]    [C]    [G]    [D]" }],
+        cagedPosition: "Open position (G)",
+        voicingNotes: "G 320003, C x32010, D xx0232",
+        technique: "Clean fingerpicking"
+      },
+      {
+        label: "Verse 1",
+        startTime: 11.5,
+        lyrics: [
+          { t: 11.5, text: "I love You [G]Lord" },
+          { t: 15.1, text: "For Your [C]mercy never [G]fails me" },
+          {
+            t: 19.3,
+            text: "All my [Em]days I've been [D]held in Your [C]hands"
+          },
+          { t: 24.8, text: "From the [Em]moment that I [D]wake up" },
+          { t: 28.5, text: "Until I [C]lay my [G]head" },
+          { t: 32.5, text: "I will [Em]sing of the [D]goodness of [C]God" }
+        ],
+        cagedPosition: "Open position (G)",
+        voicingNotes: "G 320003, C x32010, Em 022000, D xx0232",
+        technique: "Light strumming, building"
+      },
+      {
+        label: "Chorus",
+        startTime: 37.0,
+        lyrics: [
+          { t: 37.0, text: "All my [G]life You have been [C]faithful" },
+          { t: 41.5, text: "All my [G]life You have been [D]so so [Em]good" },
+          { t: 46.0, text: "With every [G]breath that I am [C]able" },
+          { t: 50.5, text: "I will [Em]sing of the [D]goodness of [G]God" }
+        ],
+        cagedPosition: "Open position (G)",
+        voicingNotes: "G 320003, C x32010, Em 022000, D xx0232",
+        technique: "Full strumming"
+      },
+      {
+        label: "Verse 2",
+        startTime: 55.0,
+        lyrics: [
+          { t: 55.0, text: "I love Your [G]voice" },
+          { t: 58.5, text: "You have [C]led me through the [G]fire" },
+          {
+            t: 63.0,
+            text: "In darkest [Em]night You are [D]close like no [C]other"
+          },
+          { t: 68.5, text: "I've known You as a [Em]Father" },
+          { t: 72.0, text: "I've known You as a [C]Friend" },
+          { t: 76.5, text: "I have [Em]lived in the [D]goodness of [C]God" }
+        ],
+        cagedPosition: "Open position (G)",
+        voicingNotes: "G 320003, C x32010, Em 022000, D xx0232",
+        technique: "Dynamic, steady rhythm"
       }
     ]
   }

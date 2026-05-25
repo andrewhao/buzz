@@ -1,8 +1,12 @@
 import { useMemo } from 'react'
-import { parseChordProLine } from '../lib/chordpro'
+import { parseChordProLine, chordToNashville } from '../lib/chordpro'
 
-export default function ChordProLine({ text, active }) {
-  const pairs = useMemo(() => parseChordProLine(text), [text])
+export default function ChordProLine({ text, active, nashville, songKey }) {
+  const pairs = useMemo(() => {
+    const parsed = parseChordProLine(text)
+    if (!nashville) return parsed
+    return parsed.map(p => ({ ...p, chord: p.chord ? chordToNashville(p.chord, songKey) : p.chord }))
+  }, [text, nashville, songKey])
   const isChordOnly = pairs.length > 0 && pairs.every(p => !p.lyric.trim())
 
   const wrapperStyle = {

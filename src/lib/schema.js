@@ -11,7 +11,6 @@ export function validateSong(data) {
       const label = s.label || `Section ${i + 1}`
       if (!s.label) errors.push(`Section ${i + 1}: missing label`)
       if (typeof s.startTime !== 'number') errors.push(`Section "${label}": missing startTime`)
-      if (!s.duration || typeof s.duration !== 'number') errors.push(`Section "${label}": missing or invalid duration`)
       if (!Array.isArray(s.lyrics)) {
         errors.push(`Section "${label}": missing lyrics array`)
       } else {

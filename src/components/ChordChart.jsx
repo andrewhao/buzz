@@ -1,11 +1,16 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import ChordProLine from './ChordProLine'
-import { findActiveLineIndex } from '../lib/chordpro'
+import { findActiveLineIndex, getSectionProgression, chordToNashville } from '../lib/chordpro'
 
-export default function ChordChart({ song, currentSectionIndex, currentTime, onSectionClick }) {
+export default function ChordChart({ song, currentSectionIndex, currentTime, showNashville, onSectionClick }) {
   const section = song.sections[currentSectionIndex]
   const activeLineIndex = section ? findActiveLineIndex(section.lyrics, currentTime) : -1
   const activeLineRef = useRef(null)
+
+  const progression = useMemo(() => {
+    if (!showNashville || !section) return []
+    return getSectionProgression(section).map(c => chordToNashville(c, song.key))
+  }, [section, showNashville, song.key])
 
   useEffect(() => {
     if (activeLineRef.current) {
@@ -35,11 +40,30 @@ export default function ChordChart({ song, currentSectionIndex, currentTime, onS
         maxHeight: '320px',
         overflowY: 'auto',
       }}>
+        {showNashville && progression.length > 0 && (
+          <div style={{
+            fontFamily: 'monospace',
+            fontSize: '0.85rem',
+            color: '#ffd166',
+            fontWeight: 700,
+            marginBottom: '0.5rem',
+            paddingBottom: '0.5rem',
+            borderBottom: '1px solid #2a2a3e',
+            letterSpacing: '0.05em',
+          }}>
+            {section.label}: {progression.join('  –  ')}
+          </div>
+        )}
         {section?.lyrics?.length > 0 ? (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
             {section.lyrics.map((line, i) => (
               <div key={i} ref={i === activeLineIndex ? activeLineRef : null}>
-                <ChordProLine text={line.text} active={i === activeLineIndex} />
+                <ChordProLine
+                  text={line.text}
+                  active={i === activeLineIndex}
+                  nashville={showNashville}
+                  songKey={song.key}
+                />
               </div>
             ))}
           </div>
