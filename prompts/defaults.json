@@ -1,0 +1,8 @@
+{
+  "preferredVoicings": ["add9", "sus4", "slash chords"],
+  "preferredPositions": "E-form and A-form barre chords",
+  "techniqueDefaults": "ambient swells with delay",
+  "cagedBias": "open positions where possible",
+  "capoStrategy": "prefer capo for sharp keys",
+  "difficultyGuidance": "4-chord songs = beginner, 5+ chords or complex rhythms = intermediate, fast changes or unusual keys = advanced"
+}
