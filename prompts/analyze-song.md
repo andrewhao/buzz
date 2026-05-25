@@ -12,10 +12,28 @@ Determine: title, artist, key, BPM, time signature. If you don't know the song, 
 
 ## STEP 2: Section breakdown
 
-Listen through the song mentally. Identify each section:
+Listen to the audio. Identify each section:
 - Intro, Verse, Chorus, Bridge, Outro
 - Also note: Tag, Instrumental, Turnaround, Interlude if present
-- For each section: list the chord progression and duration in bars (assume 4/4 unless noted, count measures)
+- For each section: capture the `startTime` in seconds from video t=0 (one decimal place), and `duration` in bars (assume 4/4 unless noted, count measures). All chord information lives inline in `lyrics[].text` (see STEP 2B) — there is no separate section-level chord list.
+- `duration` (in bars) MUST match the section's actual time span. Compute it as `round((next_section.startTime - this.startTime) / sec_per_bar)`, where `sec_per_bar = (60 / bpm) × beats_per_bar`. Use `beats_per_bar = 4` for 4/4, `3` for 3/4, and **`3` for 6/8 when `bpm` is notated as the quarter-note pulse** (the common convention). For the final section, use the video's end time. Never invent a `duration` that doesn't match the elapsed audio.
+
+## STEP 2B: Lyric transcription with timing
+
+For each section that has vocals, produce one entry per sung line in `lyrics`:
+
+- `t`: line start time in seconds from video t=0, one decimal place (e.g. `14.3`). Anchor `t` to **when the vocalist actually begins singing the line**, including any pickup/anacrusis syllables before the downbeat. Not the last word of the previous line.
+- `text`: the lyric with ChordPro-style inline chord markers — `[Chord]` placed immediately before the syllable the chord **actually changes on**. Multiple chord changes per line are expected and required when they occur. Mid-word placement is fine (e.g. `com[G]pares`).
+- Place each `[Chord]` bracket at the true chord-change moment. If a line begins with pickup syllables that are still on the previous chord (anacrusis), the first bracket on that line lands **later in the line**, not at the start. Do not force a leading bracket onto pickup syllables — that would misrepresent the harmony.
+- One object per distinct sung line. If a line repeats verbatim (e.g. verse 2 of a chorus), include the repeat as its own entry with its own `t`.
+- Use chord names exactly as played — keep slash chords, sus4, sus2, add9, etc. intact. **A slash chord is ONE bracket: write `[D/F#]`, never `[D]/[F#]` and never `[D]/F#`.** Always write `sus2` or `sus4` explicitly; **never bare `sus`** (it's ambiguous). If a chord is otherwise ambiguous, prefer the simpler diatonic option.
+- **Chord-naming convention:** inline `[Chord]` markers always use **sounding-pitch names** — the chord the listener hears. When `capo > 0`, the chord *shape* (e.g. `G`) differs from the sounding pitch (e.g. `B` with capo 4); `voicingNotes` is where you note the shape, e.g. `"B 320003 (G shape, capo 4)"`. Never put shape names in `[brackets]` when a capo is in use.
+- All `t` values within a section MUST fall inside the window `[startTime, startTime + duration_in_seconds]` (see `duration` formula in STEP 2). Lines should be roughly evenly spaced across that window.
+- **Each section entry represents one contiguous pass through the music.** If two passes of the same lyrics are separated by **more than ~4 seconds of any other content** (instrumental break, vocal ad-lib, another section's worth of bars), they MUST be split into separate section entries (e.g. `Bridge 1` and `Bridge 2`), even when the lyrics are identical. A 46-second gap between two passes inside one section entry is always wrong.
+- Use straight ASCII quotes only in `text`: `'` and `"`, never `'`, `'`, `"`, or `"`. Same for hyphens — use `-`, not `—` or `–`.
+- **Instrumental sections** (Intro, Turnaround, Instrumental, Outro with no vocal) use the same `lyrics[]` shape with **chord-only ChordPro lines** — brackets separated by whitespace, no lyric text. Each line still needs a `t` anchored to when that phrase begins. Split into multiple lines to reflect actual phrase boundaries (typically every 2–4 bars), not one giant line.
+- Within a chord-only line, the visual spacing between brackets is decorative; chord-change timing is only meaningful at the line level (via `t`). If you need finer chord-change timing inside an instrumental, split into more `lyrics` lines with their own `t` values.
+- **Every section MUST include a `lyrics` field.** No section is ever entirely empty — purely instrumental sections still get chord-only ChordPro lines as described above. `lyrics: []` should be rare and only used if a section truly has no chord content (e.g. a percussion-only break).
 
 ## STEP 3: CAGED position logic
 
@@ -33,9 +51,71 @@ For each section, recommend:
 - technique: Electric-specific approach (ambient swells, arpeggiated, strummed, pad with reverb, delay drenched, clean fingerpicking, building, climax)
 - Use worship guitar conventions: add9, sus4, slash chords, open strings ringing
 
+## STEP 4B: Worked example (for the format only — do not copy values)
+
+For "What A Beautiful Name" by Hillsong Worship (key D, 68 BPM, 4/4), a partial output for the chorus would look like:
+
+```json
+{
+  "label": "Chorus",
+  "startTime": 52.8,
+  "duration": 16,
+  "lyrics": [
+    { "t": 52.8, "text": "[D]What a beautiful [A/C#]name it is" },
+    { "t": 57.1, "text": "[Bm]What a beautiful [G]name it is" },
+    { "t": 61.4, "text": "The [D]name of [A/C#]Jesus [Bm]Christ my [G]King" },
+    { "t": 66.0, "text": "[D]What a beautiful [A/C#]name it [Bm]is" },
+    { "t": 70.2, "text": "Nothing com[G]pares to this" }
+  ],
+  "cagedPosition": "D-form (D)",
+  "voicingNotes": "D xx0232, A/C# x42220, Bm x24432, G 320003",
+  "technique": "Strummed, building dynamics"
+}
+```
+
+And a typical instrumental Intro — chord-only ChordPro lines, one per phrase:
+
+```json
+{
+  "label": "Intro",
+  "startTime": 0.0,
+  "duration": 8,
+  "lyrics": [
+    { "t": 0.0, "text": "[D]    [A]    [Bm]    [G]" },
+    { "t": 7.0, "text": "[D]    [A]    [Bm]    [G]" }
+  ],
+  "cagedPosition": "D-form (D)",
+  "voicingNotes": "D xx0232, A x02220, Bm x24432, G 320003",
+  "technique": "Ambient swells, delay"
+}
+```
+
+Note: `t` is decimal seconds from video start, anchored to when singing begins (including pickup syllables). Chord markers sit immediately before the syllable on which the chord *actually changes*, including mid-word (`com[G]pares`). Lines with four chord changes are normal and required when the song does that. Lines without a leading bracket inherit the chord from the previous line — this is correct and expected when the line opens with pickup syllables on the carried-over chord.
+
+**Anacrusis example** — when "Oh there's" is sung as pickup on the previous E chord, and the downbeat B lands on "nothing":
+
+```json
+{ "t": 52.5, "text": "Oh there's [B]nothing better than You" }
+```
+
+The bracket is in the middle of the line, not at the start. `t` is the time of "Oh" (when singing begins), not of "nothing" (when the chord changes).
+
+**Slash-chord example** — a `D/F#` walking down at the end of a phrase is ONE bracket:
+
+```json
+{ "t": 65.0, "text": "Lord I lay my [G]heart down at your [D/F#]feet" }
+```
+
+**Wrong** (do not emit either of these):
+
+```
+{ "t": 65.0, "text": "Lord I lay my [G]heart down at your [D]/[F#]feet" }
+{ "t": 65.0, "text": "Lord I lay my [G]heart down at your [D]/F#feet" }
+```
+
 ## STEP 5: Output format
 
-Return ONLY a valid JSON object matching this schema:
+Return ONLY a valid JSON object matching this schema. **Every section MUST include every field shown below. All chord information lives inline in `lyrics[].text` — there is no separate section-level chord array.**
 
 {
   "title": "Song Title",
@@ -49,8 +129,12 @@ Return ONLY a valid JSON object matching this schema:
   "sections": [
     {
       "label": "Verse",
-      "chords": ["G", "C", "Em7", "Dsus4"],
+      "startTime": 14.0,
       "duration": 16,
+      "lyrics": [
+        { "t": 14.0, "text": "[G]First line of the [C]verse goes here" },
+        { "t": 18.5, "text": "[Em7]Second line with [Dsus4]chord changes" }
+      ],
       "cagedPosition": "E-form (G)",
       "voicingNotes": "G 320003, Cadd9 x32030",
       "technique": "Arpeggiated, light gain"
@@ -58,4 +142,4 @@ Return ONLY a valid JSON object matching this schema:
   ]
 }
 
-Return ONLY the JSON. No markdown, no explanation.
+Return ONLY the JSON. No markdown, no explanation. Use straight ASCII quotes throughout.
