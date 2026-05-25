@@ -1,19 +1,16 @@
-export const NOTES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+import { Note } from 'tonal'
 
-export const NOTE_INDEX = Object.fromEntries(NOTES.map((n, i) => [n, i]))
-
-const FLAT_TO_SHARP = { 'Db': 'C#', 'Eb': 'D#', 'Gb': 'F#', 'Ab': 'G#', 'Bb': 'A#' }
+const PITCH_CLASSES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
 
 export function noteToIndex(note) {
-  const base = note.replace(/[0-9]/g, '')
-  const normalized = FLAT_TO_SHARP[base] || base
-  return NOTE_INDEX[normalized] ?? -1
+  const chroma = Note.chroma(note)
+  return chroma != null ? chroma : -1
 }
 
 export function transpose(note, semitones) {
   const idx = noteToIndex(note)
   if (idx === -1) return note
-  return NOTES[(idx + semitones + 12) % 12]
+  return PITCH_CLASSES[(idx + semitones + 12) % 12]
 }
 
 export function intervalBetween(a, b) {
@@ -22,7 +19,7 @@ export function intervalBetween(a, b) {
 
 export function getNotesInKey(root, scalePattern) {
   const rootIdx = noteToIndex(root)
-  return scalePattern.map(half => NOTES[(rootIdx + half) % 12])
+  return scalePattern.map(half => PITCH_CLASSES[(rootIdx + half) % 12])
 }
 
 export const MAJOR_SCALE = [0, 2, 4, 5, 7, 9, 11]
@@ -30,10 +27,10 @@ export const MINOR_SCALE = [0, 2, 3, 5, 7, 8, 10]
 export const MAJOR_PENTATONIC = [0, 2, 4, 7, 9]
 export const MINOR_PENTATONIC = [0, 3, 5, 7, 10]
 
-const NASHVILLE_MAJOR = ['I', 'ii', 'iii', 'IV', 'V', 'vi', 'vii\u00B0']
+const NASHVILLE_MAJOR = ['1', '2', '3', '4', '5', '6', '7']
 
-export function intervalToNashville(interval, scaleIntervals) {
-  const degree = scaleIntervals.indexOf(interval)
+export function intervalToNashville(interval) {
+  const degree = MAJOR_SCALE.indexOf(interval)
   if (degree === -1) return ''
   return NASHVILLE_MAJOR[degree] || ''
 }
@@ -53,5 +50,5 @@ export const STRING_NOTES = ['E2', 'A2', 'D3', 'G3', 'B3', 'E4']
 export function noteAtFret(stringIndex, fret) {
   const open = STRING_NOTES[stringIndex]
   const openIdx = noteToIndex(open)
-  return NOTES[(openIdx + fret) % 12]
+  return PITCH_CLASSES[(openIdx + fret) % 12]
 }

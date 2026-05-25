@@ -22,11 +22,12 @@ export default function Fretboard({ song, currentSectionIndex, showPentatonic })
   }
 
   function noteX(f) {
-    return fretX(f) + FRET_SPACING / 2
+    if (f === 0) return PADDING + 6
+    return fretX(f) - FRET_SPACING / 2
   }
 
   function stringY(s) {
-    return PADDING + s * STRING_SPACING
+    return PADDING + (STRING_COUNT - 1 - s) * STRING_SPACING
   }
 
   const fretMarkers = [3, 5, 7, 9, 12, 15]
@@ -107,7 +108,7 @@ export default function Fretboard({ song, currentSectionIndex, showPentatonic })
               textAnchor="middle"
               dominantBaseline="middle"
               fill="#fff"
-              fontSize={p.nashville.length > 2 ? '7' : '8'}
+              fontSize="11"
               fontWeight={p.isRoot ? '700' : '400'}
               style={{ pointerEvents: 'none' }}
             >

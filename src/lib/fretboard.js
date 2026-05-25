@@ -32,7 +32,7 @@ export function getPositionNotes(rootNote, scaleIntervals) {
       ...p,
       inScale: scaleNoteIndices.has(noteIdx),
       isRoot: noteIdx === rootIdx,
-      nashville: interval != null ? intervalToNashville(interval, scaleIntervals) : '',
+      nashville: interval != null ? intervalToNashville(interval) : '',
     }
   })
 }
