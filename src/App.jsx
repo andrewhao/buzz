@@ -14,10 +14,12 @@ export default function App() {
   }, [])
 
   const handleAddSong = useCallback((song) => {
-    const updated = [...customSongs, song]
-    setCustomSongs(updated)
-    saveSongs(updated)
-  }, [customSongs])
+    setCustomSongs((prev) => {
+      const updated = [...prev, song]
+      saveSongs(updated)
+      return updated
+    })
+  }, [])
 
   const handleBack = useCallback(() => {
     setScreen('library')
