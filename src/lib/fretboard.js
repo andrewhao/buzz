@@ -4,11 +4,11 @@ export const FRET_COUNT = 12
 export const STRING_COUNT = 6
 
 export const CAGED_SHAPES = {
-  'E-form': { rootString: 5, rootFretOffset: 0, shape: [0, 2, 2, 1, 0, 0] },
-  'A-form': { rootString: 4, rootFretOffset: 0, shape: [0, 0, 2, 2, 2, 0] },
-  'C-form': { rootString: 2, rootFretOffset: 0, shape: [0, 3, 2, 0, 1, 0] },
-  'D-form': { rootString: 3, rootFretOffset: 0, shape: [0, 0, 0, 2, 3, 2] },
-  'G-form': { rootString: 5, rootFretOffset: 0, shape: [3, 2, 0, 0, 0, 3] },
+  'E-form': { rootString: 5, frets: [0, 2, 2, 1, 0, 0] },
+  'A-form': { rootString: 4, frets: [0, 0, 2, 2, 2, 0] },
+  'C-form': { rootString: 2, frets: [0, 3, 2, 0, 1, 0] },
+  'D-form': { rootString: 3, frets: [0, 0, 0, 2, 3, 2] },
+  'G-form': { rootString: 5, frets: [3, 2, 0, 0, 0, 3] },
 }
 
 export function getFretboardNotes() {
@@ -37,7 +37,7 @@ export function getCagedPositionNotes(rootNote, formName) {
   const rootIdx = noteToIndex(rootNote)
   const positions = []
   for (let s = 0; s < STRING_COUNT; s++) {
-    const fret = shape.shape[s]
+    const fret = shape.frets[s]
     if (fret > 0) {
       const note = noteAtFret(s, fret)
       positions.push({ string: s, fret, note, isRoot: note === rootNote })

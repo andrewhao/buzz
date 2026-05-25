@@ -4,7 +4,8 @@ export function loadSongs() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY)
     return raw ? JSON.parse(raw) : []
-  } catch {
+  } catch (e) {
+    console.error('Failed to load songs:', e)
     return []
   }
 }

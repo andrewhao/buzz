@@ -1,32 +1,3 @@
-export const SECTION_SCHEMA = {
-  type: 'object',
-  required: ['label', 'chords', 'duration'],
-  properties: {
-    label: { type: 'string' },
-    chords: { type: 'array', items: { type: 'string' } },
-    duration: { type: 'number' },
-    cagedPosition: { type: 'string' },
-    voicingNotes: { type: 'string' },
-    technique: { type: 'string' },
-  },
-}
-
-export const SONG_SCHEMA = {
-  type: 'object',
-  required: ['title', 'artist', 'key', 'bpm', 'sections'],
-  properties: {
-    title: { type: 'string' },
-    artist: { type: 'string' },
-    key: { type: 'string' },
-    bpm: { type: 'number' },
-    timeSignature: { type: 'string' },
-    youtubeId: { type: 'string' },
-    difficulty: { type: 'string', enum: ['beginner', 'intermediate', 'advanced'] },
-    capo: { type: ['number', 'null'] },
-    sections: { type: 'array', items: SECTION_SCHEMA },
-  },
-}
-
 export function validateSong(data) {
   const errors = []
   if (!data.title) errors.push('Missing title')
