@@ -12,6 +12,9 @@ export function validateSong(data) {
       if (!Array.isArray(s.chords) || s.chords.length === 0) {
         errors.push(`Section "${s.label || i + 1}": missing chords`)
       }
+      if (typeof s.startTime !== 'number') {
+        errors.push(`Section "${s.label || i + 1}": missing startTime`)
+      }
       if (!s.duration || typeof s.duration !== 'number') {
         errors.push(`Section "${s.label || i + 1}": missing or invalid duration`)
       }

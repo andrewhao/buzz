@@ -1,6 +1,6 @@
-import { noteAtFret, noteToIndex } from './notes'
+import { noteAtFret, noteToIndex, intervalToNashville } from './notes'
 
-export const FRET_COUNT = 12
+export const FRET_COUNT = 16
 export const STRING_COUNT = 6
 
 export const CAGED_SHAPES = {
@@ -24,11 +24,17 @@ export function getFretboardNotes() {
 export function getPositionNotes(rootNote, scaleIntervals) {
   const rootIdx = noteToIndex(rootNote)
   const scaleNoteIndices = new Set(scaleIntervals.map(i => (rootIdx + i) % 12))
-  return getFretboardNotes().map(p => ({
-    ...p,
-    inScale: scaleNoteIndices.has(noteToIndex(p.note)),
-    isRoot: p.note === rootNote,
-  }))
+  const intervalMap = Object.fromEntries(scaleIntervals.map(i => [(rootIdx + i) % 12, i]))
+  return getFretboardNotes().map(p => {
+    const noteIdx = noteToIndex(p.note)
+    const interval = intervalMap[noteIdx]
+    return {
+      ...p,
+      inScale: scaleNoteIndices.has(noteIdx),
+      isRoot: noteIdx === rootIdx,
+      nashville: interval != null ? intervalToNashville(interval, scaleIntervals) : '',
+    }
+  })
 }
 
 export function getCagedPositionNotes(rootNote, formName) {

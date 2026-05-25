@@ -2,9 +2,12 @@ export const NOTES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#'
 
 export const NOTE_INDEX = Object.fromEntries(NOTES.map((n, i) => [n, i]))
 
+const FLAT_TO_SHARP = { 'Db': 'C#', 'Eb': 'D#', 'Gb': 'F#', 'Ab': 'G#', 'Bb': 'A#' }
+
 export function noteToIndex(note) {
   const base = note.replace(/[0-9]/g, '')
-  return NOTE_INDEX[base] ?? -1
+  const normalized = FLAT_TO_SHARP[base] || base
+  return NOTE_INDEX[normalized] ?? -1
 }
 
 export function transpose(note, semitones) {
@@ -26,6 +29,14 @@ export const MAJOR_SCALE = [0, 2, 4, 5, 7, 9, 11]
 export const MINOR_SCALE = [0, 2, 3, 5, 7, 8, 10]
 export const MAJOR_PENTATONIC = [0, 2, 4, 7, 9]
 export const MINOR_PENTATONIC = [0, 3, 5, 7, 10]
+
+const NASHVILLE_MAJOR = ['I', 'ii', 'iii', 'IV', 'V', 'vi', 'vii\u00B0']
+
+export function intervalToNashville(interval, scaleIntervals) {
+  const degree = scaleIntervals.indexOf(interval)
+  if (degree === -1) return ''
+  return NASHVILLE_MAJOR[degree] || ''
+}
 
 export const MODES = {
   Ionian: [0, 2, 4, 5, 7, 9, 11],

@@ -1,8 +1,20 @@
 import { useEffect } from 'react'
 import useYouTube from '../hooks/useYouTube'
 
-export default function YouTubePlayer({ youtubeId, playerId = 'youtube-player' }) {
-  const { initPlayer, ready } = useYouTube(playerId)
+export default function YouTubePlayer({ youtubeId, onSeekReady, onTimeUpdate, playerId = 'youtube-player' }) {
+  const { initPlayer, ready, currentTime, seekTo, playerRef } = useYouTube(playerId)
+
+  useEffect(() => {
+    if (onSeekReady) {
+      onSeekReady(seekTo)
+    }
+  }, [onSeekReady, seekTo])
+
+  useEffect(() => {
+    if (onTimeUpdate) {
+      onTimeUpdate(currentTime)
+    }
+  }, [currentTime, onTimeUpdate])
 
   useEffect(() => {
     if (youtubeId) {
