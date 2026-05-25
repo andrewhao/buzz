@@ -1,16 +1,17 @@
-import { useCallback, useEffect, useRef } from 'react'
+import { useCallback, useEffect, useMemo, useRef } from 'react'
 import useBackingTrack from '../hooks/useBackingTrack'
+import { extractSectionChords } from '../lib/chordpro'
 
 export default function BackingTrack({ song, currentSectionIndex }) {
   const { active, tempo, startLoop, stop } = useBackingTrack()
   const cleanupRef = useRef(null)
 
   const section = song?.sections?.[currentSectionIndex]
+  const chords = useMemo(() => extractSectionChords(section), [section])
 
   const handleToggle = useCallback(() => {
     if (!active) {
-      const chords = section?.chords || ['C']
-      const cleanup = startLoop(chords, song?.bpm || 120)
+      const cleanup = startLoop(chords.length > 0 ? chords : ['C'], song?.bpm || 120)
       cleanupRef.current = cleanup
     } else {
       stop()
@@ -19,7 +20,7 @@ export default function BackingTrack({ song, currentSectionIndex }) {
         cleanupRef.current = null
       }
     }
-  }, [active, section, song?.bpm, startLoop, stop])
+  }, [active, chords, song?.bpm, startLoop, stop])
 
   useEffect(() => {
     return () => {

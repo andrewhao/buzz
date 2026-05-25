@@ -7,16 +7,16 @@ import BackingTrack from './BackingTrack'
 
 export default function PracticeView({ song, onBack }) {
   const [sectionIndex, setSectionIndex] = useState(0)
+  const [currentTime, setCurrentTime] = useState(0)
   const [showPentatonic, setShowPentatonic] = useState(false)
   const seekRef = useRef(null)
-  const currentTimeRef = useRef(0)
 
   const handleSeekReady = useCallback((seekFn) => {
     seekRef.current = seekFn
   }, [])
 
   const handleTimeUpdate = useCallback((time) => {
-    currentTimeRef.current = time
+    setCurrentTime(time)
     const sections = song.sections
     for (let i = sections.length - 1; i >= 0; i--) {
       if (time >= sections[i].startTime) {
@@ -67,6 +67,7 @@ export default function PracticeView({ song, onBack }) {
         <ChordChart
           song={song}
           currentSectionIndex={sectionIndex}
+          currentTime={currentTime}
           onSectionClick={handleSectionClick}
         />
       </div>

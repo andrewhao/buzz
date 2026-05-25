@@ -1,5 +1,17 @@
-export default function ChordChart({ song, currentSectionIndex, onSectionClick }) {
+import { useEffect, useRef } from 'react'
+import ChordProLine from './ChordProLine'
+import { findActiveLineIndex } from '../lib/chordpro'
+
+export default function ChordChart({ song, currentSectionIndex, currentTime, onSectionClick }) {
   const section = song.sections[currentSectionIndex]
+  const activeLineIndex = section ? findActiveLineIndex(section.lyrics, currentTime) : -1
+  const activeLineRef = useRef(null)
+
+  useEffect(() => {
+    if (activeLineRef.current) {
+      activeLineRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+    }
+  }, [activeLineIndex, currentSectionIndex])
 
   return (
     <div>
@@ -20,17 +32,20 @@ export default function ChordChart({ song, currentSectionIndex, onSectionClick }
         border: '1px solid #2a2a3e',
         marginBottom: '0.75rem',
         padding: '0.75rem',
+        maxHeight: '320px',
+        overflowY: 'auto',
       }}>
-        <div style={{ fontFamily: 'monospace', fontSize: '1rem', marginBottom: '0.5rem', display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-          {section?.chords.map((chord, i) => (
-            <span key={i} style={{ color: '#4ecdc4', fontWeight: 600 }}>{chord}</span>
-          ))}
-        </div>
-        {section?.lyrics && section.lyrics.length > 0 && (
-          <div style={{ fontSize: '0.85rem', color: '#ccc', lineHeight: '1.6', borderTop: '1px solid #2a2a3e', paddingTop: '0.5rem', marginTop: '0.25rem' }}>
+        {section?.lyrics?.length > 0 ? (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
             {section.lyrics.map((line, i) => (
-              <div key={i}>{line}</div>
+              <div key={i} ref={i === activeLineIndex ? activeLineRef : null}>
+                <ChordProLine text={line.text} active={i === activeLineIndex} />
+              </div>
             ))}
+          </div>
+        ) : (
+          <div style={{ color: '#666', fontStyle: 'italic', fontSize: '0.85rem' }}>
+            No chord content for this section.
           </div>
         )}
         {section?.cagedPosition && (
@@ -63,9 +78,6 @@ export default function ChordChart({ song, currentSectionIndex, onSectionClick }
               <div style={{ fontSize: '0.65rem', color: '#555' }}>
                 {formatTime(s.startTime)}
               </div>
-            </div>
-            <div style={{ fontFamily: 'monospace', fontSize: '0.8rem', color: '#aaa' }}>
-              {s.chords.join('  ')}
             </div>
           </button>
         ))}

@@ -8,15 +8,21 @@ export function validateSong(data) {
     errors.push('Need at least one section')
   } else {
     data.sections.forEach((s, i) => {
+      const label = s.label || `Section ${i + 1}`
       if (!s.label) errors.push(`Section ${i + 1}: missing label`)
-      if (!Array.isArray(s.chords) || s.chords.length === 0) {
-        errors.push(`Section "${s.label || i + 1}": missing chords`)
-      }
-      if (typeof s.startTime !== 'number') {
-        errors.push(`Section "${s.label || i + 1}": missing startTime`)
-      }
-      if (!s.duration || typeof s.duration !== 'number') {
-        errors.push(`Section "${s.label || i + 1}": missing or invalid duration`)
+      if (typeof s.startTime !== 'number') errors.push(`Section "${label}": missing startTime`)
+      if (!s.duration || typeof s.duration !== 'number') errors.push(`Section "${label}": missing or invalid duration`)
+      if (!Array.isArray(s.lyrics)) {
+        errors.push(`Section "${label}": missing lyrics array`)
+      } else {
+        s.lyrics.forEach((line, j) => {
+          if (typeof line !== 'object' || line === null) {
+            errors.push(`Section "${label}" line ${j + 1}: must be an object`)
+          } else {
+            if (typeof line.t !== 'number') errors.push(`Section "${label}" line ${j + 1}: missing or invalid t`)
+            if (typeof line.text !== 'string') errors.push(`Section "${label}" line ${j + 1}: missing or invalid text`)
+          }
+        })
       }
     })
   }

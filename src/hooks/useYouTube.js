@@ -61,9 +61,9 @@ export default function useYouTube(playerId) {
     const interval = setInterval(() => {
       if (playerRef.current && playerRef.current.getCurrentTime) {
         const t = playerRef.current.getCurrentTime()
-        if (t > 0) setCurrentTime(t)
+        if (typeof t === 'number') setCurrentTime(t)
       }
-    }, 500)
+    }, 250)
     return () => clearInterval(interval)
   }, [])
 
